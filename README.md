@@ -471,9 +471,19 @@ Aller au répertoire /var/log/snort. Ouvrir le fichier `alert`. Vérifier qu'il 
 **Reponse :**  
 
 ---
-
-
---
+Lorsque Snort génère un message d'alerte, il se présente généralement comme suit (exemple précédent): 
+```
+[**] [1:4000122:2] walid find a disney movie! [**]
+[Priority: 0] 
+04/09-14:59:23.126925 23.236.60.174:80 -> 10.0.2.15:39112
+TCP TTL:64 TOS:0x0 ID:49184 IpLen:20 DgmLen:1460
+***AP*** Seq: 0x12D92B5E  Ack: 0xF362C3D9  Win: 0xFFFF  TcpLen: 20
+```
+* Le premier numéro est l'ID du générateur, il indique à l'utilisateur quel composant de Snort a généré cette alerte ainsi le message de l'alerte.
+* la case periority indique la periorité de l'alerte générée (par défaut est égale à zéro).
+* la troisième ligne indique des informatioms concernant le log et la date de creation .
+* à la fin de la sortie de l'alerte on toouve tous les informations conceranant le paquet (protocole ,TTL,MTU ...).
+---
 
 ### Detecter une visite à Wikipedia
 
