@@ -337,6 +337,9 @@ sudo snort -c myrules.rules -i eth0
 **Reponse :**  
 ![Capture écran des messages de lancement du snort ](images/myrules.png)
 ![contenu de notre règle ](images/myrulesTCP.png)
+
+Explications : Les messages affichés donne une idée sur les règles chargé par la commande ainsi quelques informations sur les détails du règles .nous trouvons aussi les port de sortie et d'entrée ,le nombre de pattern qui matche notre  règle .aussi à la fin d'exécution de notre commande snort nous permt d'avoir une vue complète sur le nombre des paquets capturées ainsi les alertes générées .
+
 ---
 
 Aller à un site web contenant dans son text votre nom ou votre mot clé que vous avez choisi (il faudra chercher un peu pour trouver un site en http...).
