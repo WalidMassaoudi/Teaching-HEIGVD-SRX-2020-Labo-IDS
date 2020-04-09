@@ -516,7 +516,9 @@ Ecrire une règle qui alerte à chaque fois que votre système reçoit un ping d
 **Reponse :**  
 
 ---
-
+```
+alert icmp any any -> 192.168.1.107 any (msg:"receiving ping "; itype:8; sid:40000145; rev:1)
+````
 
 **Question 10: Comment avez-vous fait pour que ça identifie seulement les pings entrants ?**
 
@@ -525,7 +527,7 @@ Ecrire une règle qui alerte à chaque fois que votre système reçoit un ping d
 **Reponse :**  
 
 ---
-
+Afin de détecter seulement les ping entrants on a identifier les paquets de protocole ICMP de type 8 (echo request).en précisant aussi que la destination est notre machine (notre adresse ip ).
 
 **Question 11: Où le message a-t-il été journalisé ?**
 
@@ -534,7 +536,7 @@ Ecrire une règle qui alerte à chaque fois que votre système reçoit un ping d
 **Reponse :**  
 
 ---
-
+Snort enregistre les messages des alertes  dans le fichier /var/log/snort/alert ainsi les paquets capturées qui ont causé l'alerte se trouve dans le log.xxx.
 
 **Question 12: Qu'est-ce qui a été journalisé ?**
 
@@ -543,8 +545,9 @@ Ecrire une règle qui alerte à chaque fois que votre système reçoit un ping d
 **Reponse :**  
 
 ---
+Un message indiquant le paquet entrante ainsi l'identifiant de l'alerte et le ficher log contenant le paquet complète .
 
---
+---
 
 ### Detecter les ping dans les deux sens
 
@@ -557,9 +560,13 @@ Modifier votre règle pour que les pings soient détectés dans les deux sens.
 **Reponse :**  
 
 ---
-
-
---
+Voici la nouvelle règle :
+```
+alert icmp any any <> 192.168.1.107 any (msg:"receiving ping "; sid:40000145; rev:1)
+````
+on a modifié le sens des paquets de -> vers <>(deux sens ) aussi on a retiré l'option itype:8 pour permettre de détecter les pings sortants aussi .
+ 
+---
 
 ### Detecter une tentative de login SSH
 
@@ -572,7 +579,12 @@ Essayer d'écrire une règle qui Alerte qu'une tentative de session SSH a été 
 **Reponse :**  
 
 ---
+```
+alert tcp any any -> 192.168.1.107  22 (msg:"SSH login"; sid:100000186; rev:1)
 
+```
+La règle établie détecte toutes tentative de connection shh vers notre machine on utilisant le port 22 comme référence .
+tous les alertes générées seront enregistrées dans le fichier alertes avec un id unique .
 
 **Question 15: Montrer le message d'alerte enregistré dans le fichier d'alertes.** 
 
