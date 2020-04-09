@@ -349,10 +349,10 @@ Aller à un site web contenant dans son text votre nom ou votre mot clé que vou
 ---
 
 **Reponse :**
+
+---
 Puisque on a pas du préprocessuer configuré pour cette règle on observe le warning "No preprocessors configured for policy 0" ,par contre notre règle à trouvé le mot recherché dans notre site web .
 ![contenu de notre règle ](images/visitWeb.png)
----
-
 Arrêter Snort avec `CTRL-C`.
 
 **Question 6: Que voyez-vous quand vous arrêtez snort ? Décrivez en détail toutes les informations qu'il vous fournit.**
