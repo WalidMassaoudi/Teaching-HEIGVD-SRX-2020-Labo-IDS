@@ -496,6 +496,12 @@ Ecrire une règle qui journalise (sans alerter) un message à chaque fois que Wi
 **Reponse :**  
 
 ---
+Règle utilisé :
+```
+log tcp [2a02:1205:34c1:27c0:a55b:b5f:f517:1c74]  any -> [2620:0:862:ed1a::3]  any (msg: "walid visited Wikipedia"; sid: 40000143; rev:1;)
+
+```
+Notre message est journalisé dans un fichiers log  en format pcap dans le dossier /var/log/snort/.c'est une capturre des paquets capturées on peut l'ouvrir avec wireshark ou bien avec la commande tcpdump.
 
 --
 
