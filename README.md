@@ -291,7 +291,9 @@ Vous pouvez aussi utiliser des captures Wireshark ou des fichiers snort.log.xxxx
 Snort a plusieurs composants autres que le moteur de règles. Par exemple, certains paquets et applications doivent être décodés
 en texte brut pour que les règles Snort se déclenchent. Le composant qui gère les paquets avant qu'ils n'atteignent le moteur
 de règles est appelé le préprocesseur.
-Source :https://www.oreilly.com/library/view/snort-cookbook/0596007914/ch04.html
+
+--- Source :https://www.oreilly.com/library/view/snort-cookbook/0596007914/ch04.html
+
 
 ---
 
@@ -301,7 +303,7 @@ Source :https://www.oreilly.com/library/view/snort-cookbook/0596007914/ch04.html
 
 **Reponse :**  
 
---- + Le "Warning No preprocessors configured for policy 0" est du à la configuration des préprocessuers ,puisque notre règle est "home-     + made " la configuration préprocessuer de base ne couvre pas la règle ajouté . 
+---  Le "Warning No preprocessors configured for policy 0" est dü à la configuration des préprocesseurs ,puisque notre règle est "home-     made ",la configuration des préprocessuers de base ne couvre pas la règle ajouté . 
 
 --
 
@@ -318,9 +320,9 @@ alert tcp any any -> any any (msg:"Mon nom!"; content:"Rubinstein"; sid:4000015;
 **Reponse :**  
 
 ---
-```diff
-+ Une règle contient un ensemble des champs permettent de détecter ou bien manipuler une paquet .Au début Snort applique cette règle  sur les paquets capturées pour obtenir un permier plage de paquet correspond au type du protocole , adresse ip destination et adresse ip source (mentionés dans l'entète de la règle ) .
-```
+
+Une règle contient un ensemble des champs permettent de détecter ou bien manipuler une paquet .Au début Snort applique cette règle  sur les paquets capturées pour obtenir une permiere plage de paquet correspondant au type du protocole , adresse ip destination et adresse ip source (mentionés dans l'entète de la règle ) . La régle au dessus va créer une alerte sous le nom  "mon nom " pour tous les paquets TCP conntenant le texte "Rubinstein". 
+
 
 Utiliser un éditeur et créer un fichier `myrules.rules` sur votre répertoire home. Rajouter une règle comme celle montrée avant mais avec votre nom ou un mot clé de votre préférence. Lancer snort avec la commande suivante :
 
@@ -333,7 +335,8 @@ sudo snort -c myrules.rules -i eth0
 ---
 
 **Reponse :**  
-
+![Capture écran des messages de lancement du snort ](images/myrules.png)
+![contenu de notre règle ](images/myrulesTCP.png)
 ---
 
 Aller à un site web contenant dans son text votre nom ou votre mot clé que vous avez choisi (il faudra chercher un peu pour trouver un site en http...).
