@@ -362,7 +362,13 @@ Arrêter Snort avec `CTRL-C`.
 **Reponse :**  
 
 --- 
-Lorsque on arréte Snort quelques informations s'affichent à l'ècran. Il sont des récapulatifs sur les résultat du traitement des paquets capturés .
+Lorsque on arréte Snort quelques informations s'affichent à l'ècran. Il sont des récapulatifs sur les résultat du traitement des paquets capturés . Ces informations sont expliquées comme ce dessous :
+" Timing Statistics ": fournit des statistiques de synchronisation de base. Il comprend le nombre total de secondes et de paquets ainsi que les taux de traitement des paquets
+" Packet I/O Totals " : Cette section montre l'acquisition de paquets de base. Si vous lisez des pcaps, les totaux sont pour tous les pcaps combinés.
+" Memory usage summary " : Contient des informations concernant l'utilisation de l'espace memoire .
+" Protocol Statistics " : Le trafic pour tous les protocoles décodés par Snort est résumé dans la section "breakdown by protocol" .
+Actions, Limits, et  Verdicts : Le nombre d'actions et de verdict montre ce que Snort a fait avec les paquets qu'il a analysés. Ces informations ne sont sorties qu'en mode IDS ."Limits " surviennent en raison de contraintes réelles sur le temps de traitement et la mémoire disponible.
+
 ```
 ===============================================================================
 Run time for packet processing was 17.7775 seconds
