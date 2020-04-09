@@ -301,7 +301,7 @@ Source :https://www.oreilly.com/library/view/snort-cookbook/0596007914/ch04.html
 
 **Reponse :**  
 
----
+--- Le "Warning No preprocessors configured for policy 0" est du à la configuration des préprocessuers ,puisque notre règle est "home-made " la configuration préprocessuer de base ne couvre pas la règle ajouté . 
 
 --
 
@@ -316,9 +316,14 @@ alert tcp any any -> any any (msg:"Mon nom!"; content:"Rubinstein"; sid:4000015;
 ---
 
 **Reponse :**  
-NOT FINISH
+
 ---
-Une règle contient un ensemble des champs permettent de détecter ou bien manipuler une paquet .Au début Snort applique cette règle  sur les paquets capturées pour obtenir un permier plage de paquet correspond au type du protocole , adresse ip destiniation et adresse ip source (mentionés dans l'entète de la règle ) .
+```diff
+
+
+
++ Une règle contient un ensemble des champs permettent de détecter ou bien manipuler une paquet .Au début Snort applique cette règle  sur les paquets capturées pour obtenir un permier plage de paquet correspond au type du protocole , adresse ip destination et adresse ip source (mentionés dans l'entète de la règle ) .
+```
 
 Utiliser un éditeur et créer un fichier `myrules.rules` sur votre répertoire home. Rajouter une règle comme celle montrée avant mais avec votre nom ou un mot clé de votre préférence. Lancer snort avec la commande suivante :
 
