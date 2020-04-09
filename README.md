@@ -545,7 +545,7 @@ Snort enregistre les messages des alertes  dans le fichier /var/log/snort/alert 
 **Reponse :**  
 
 ---
-Un message indiquant le paquet entrante ainsi l'identifiant de l'alerte et le ficher log contenant le paquet complète .
+Un message indiquant le paquet entrante ainsi l'identifiant de l'alerte et le ficher log contenant le paquet complèt .
 
 ---
 
@@ -607,8 +607,240 @@ Lancer Wireshark et faire une capture du trafic sur l'interface connectée au br
 **Reponse :**  
 
 ---
+Pour analyser le pichier pcap généré par wireshark on peut utiliser l'option : snort -r file.pcap
+
 
 Utiliser l'option correcte de Snort pour analyser le fichier de capture Wireshark.
+```
+root@kali:~# sudo snort -r walid.pcapng 
+Running in packet dump mode
+
+        --== Initializing Snort ==--
+Initializing Output Plugins!
+pcap DAQ configured to read-file.
+Acquiring network traffic from "walid.pcapng".
+
+        --== Initialization Complete ==--
+
+   ,,_     -*> Snort! <*-
+  o"  )~   Version 2.9.7.0 GRE (Build 149) 
+   ''''    By Martin Roesch & The Snort Team: http://www.snort.org/contact#team
+           Copyright (C) 2014 Cisco and/or its affiliates. All rights reserved.
+           Copyright (C) 1998-2013 Sourcefire, Inc., et al.
+           Using libpcap version 1.8.1
+           Using PCRE version: 8.39 2016-06-14
+           Using ZLIB version: 1.2.11
+
+Commencing packet processing (pid=5910)
+WARNING: No preprocessors configured for policy 0.
+04/09-17:18:58.930462 192.168.1.117:59094 -> 239.255.255.250:1900
+UDP TTL:1 TOS:0x0 ID:64060 IpLen:20 DgmLen:202
+Len: 174
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/09-17:18:59.755383 192.168.1.140:37402 -> 34.246.158.160:443
+TCP TTL:64 TOS:0x0 ID:61678 IpLen:20 DgmLen:132 DF
+***AP*** Seq: 0x57F85352  Ack: 0xC887E79B  Win: 0x16D  TcpLen: 32
+TCP Options (3) => NOP NOP TS: 2397176808 548962748 
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:18:59.836741 34.246.158.160:443 -> 192.168.1.140:37402
+TCP TTL:224 TOS:0x0 ID:45221 IpLen:20 DgmLen:52 DF
+***A**** Seq: 0xC887E79B  Ack: 0x57F853A2  Win: 0x74  TcpLen: 32
+TCP Options (3) => NOP NOP TS: 548965555 2397176808 
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:18:59.852428 192.168.1.117:59094 -> 239.255.255.250:1900
+UDP TTL:1 TOS:0x0 ID:64061 IpLen:20 DgmLen:202
+Len: 174
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:18:59.987079 52.114.76.163:443 -> 192.168.1.107:54376
+TCP TTL:109 TOS:0x0 ID:50397 IpLen:20 DgmLen:169 DF
+***AP*** Seq: 0xBA57D457  Ack: 0x57EEA411  Win: 0x802  TcpLen: 20
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:18:59.987101 52.114.76.163:443 -> 192.168.1.107:54376
+TCP TTL:109 TOS:0x0 ID:50398 IpLen:20 DgmLen:250 DF
+***AP*** Seq: 0xBA57D4D8  Ack: 0x57EEA411  Win: 0x802  TcpLen: 20
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:18:59.987105 52.114.76.163:443 -> 192.168.1.107:54376
+TCP TTL:109 TOS:0x0 ID:50399 IpLen:20 DgmLen:86 DF
+***AP*** Seq: 0xBA57D5AA  Ack: 0x57EEA411  Win: 0x802  TcpLen: 20
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:18:59.987109 52.114.76.163:443 -> 192.168.1.107:54376
+TCP TTL:109 TOS:0x0 ID:50400 IpLen:20 DgmLen:78 DF
+***AP*** Seq: 0xBA57D5D8  Ack: 0x57EEA411  Win: 0x802  TcpLen: 20
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:18:59.987113 192.168.1.107:54376 -> 52.114.76.163:443
+TCP TTL:128 TOS:0x0 ID:24756 IpLen:20 DgmLen:40 DF
+***A**** Seq: 0x57EEA411  Ack: 0xBA57D5FE  Win: 0x205  TcpLen: 20
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:19:00.003281 192.168.1.107:54376 -> 52.114.76.163:443
+TCP TTL:128 TOS:0x0 ID:24757 IpLen:20 DgmLen:224 DF
+***AP*** Seq: 0x57EEA411  Ack: 0xBA57D5FE  Win: 0x205  TcpLen: 20
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:19:00.083773 52.114.76.163:443 -> 192.168.1.107:54376
+TCP TTL:109 TOS:0x0 ID:50401 IpLen:20 DgmLen:40 DF
+***A**** Seq: 0xBA57D5FE  Ack: 0x57EEA4C9  Win: 0x801  TcpLen: 20
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:19:00.203956 140.82.114.25:443 -> 192.168.1.107:56914
+TCP TTL:48 TOS:0x0 ID:273 IpLen:20 DgmLen:64 DF
+***AP*** Seq: 0x4327CAA  Ack: 0x313ACEC7  Win: 0x20  TcpLen: 20
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:19:00.204126 192.168.1.107:56914 -> 140.82.114.25:443
+TCP TTL:128 TOS:0x0 ID:16602 IpLen:20 DgmLen:68 DF
+***AP*** Seq: 0x313ACEC7  Ack: 0x4327CC2  Win: 0x1FF  TcpLen: 20
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:19:00.300903 140.82.114.25:443 -> 192.168.1.107:56914
+TCP TTL:48 TOS:0x0 ID:274 IpLen:20 DgmLen:40 DF
+***A**** Seq: 0x4327CC2  Ack: 0x313ACEE3  Win: 0x20  TcpLen: 20
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:19:00.418607 192.168.1.107:56544 -> 198.252.206.25:443
+TCP TTL:128 TOS:0x0 ID:30099 IpLen:20 DgmLen:41 DF
+***A**** Seq: 0xF2B4A7B2  Ack: 0xBAAC704D  Win: 0x1FD  TcpLen: 20
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:19:00.518131 198.252.206.25:443 -> 192.168.1.107:56544
+TCP TTL:48 TOS:0x0 ID:1301 IpLen:20 DgmLen:52 DF
+***A**** Seq: 0xBAAC704D  Ack: 0xF2B4A7B3  Win: 0x3F  TcpLen: 32
+TCP Options (3) => NOP NOP Sack: 62132@42930 
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:19:01.083490 192.168.1.117:59094 -> 239.255.255.250:1900
+UDP TTL:1 TOS:0x0 ID:64062 IpLen:20 DgmLen:202
+Len: 174
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:19:02.002480 192.168.1.117:59094 -> 239.255.255.250:1900
+UDP TTL:1 TOS:0x0 ID:64063 IpLen:20 DgmLen:202
+Len: 174
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:19:02.287188 192.168.1.107:56882 -> 140.82.113.25:443
+TCP TTL:128 TOS:0x0 ID:25782 IpLen:20 DgmLen:41 DF
+***A**** Seq: 0xF7AB38D1  Ack: 0xAE056174  Win: 0x1FE  TcpLen: 20
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:19:02.384244 140.82.113.25:443 -> 192.168.1.107:56882
+TCP TTL:53 TOS:0x20 ID:38086 IpLen:20 DgmLen:52 DF
+***A**** Seq: 0xAE056174  Ack: 0xF7AB38D2  Win: 0x20  TcpLen: 32
+TCP Options (3) => NOP NOP Sack: 63403@14545 
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:19:02.994683 192.168.1.107:54203 -> 64.225.7.146:443
+TCP TTL:128 TOS:0x0 ID:48388 IpLen:20 DgmLen:41 DF
+***A**** Seq: 0x5FB91682  Ack: 0x2F7AEBDF  Win: 0x200  TcpLen: 20
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+WARNING: No preprocessors configured for policy 0.
+04/09-17:19:03.083414 64.225.7.146:443 -> 192.168.1.107:54203
+TCP TTL:53 TOS:0x0 ID:22790 IpLen:20 DgmLen:52 DF
+***A**** Seq: 0x2F7AEBDF  Ack: 0x5FB91683  Win: 0x10F  TcpLen: 32
+TCP Options (3) => NOP NOP Sack: 24505@5762 
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+===============================================================================
+Run time for packet processing was 0.254 seconds
+Snort processed 22 packets.
+Snort ran for 0 days 0 hours 0 minutes 0 seconds
+   Pkts/sec:           22
+===============================================================================
+Memory usage summary:
+  Total non-mmapped bytes (arena):       786432
+  Bytes in mapped regions (hblkhd):      12906496
+  Total allocated space (uordblks):      684736
+  Total free space (fordblks):           101696
+  Topmost releasable block (keepcost):   84464
+===============================================================================
+Packet I/O Totals:
+   Received:           22
+   Analyzed:           22 (100.000%)
+    Dropped:            0 (  0.000%)
+   Filtered:            0 (  0.000%)
+Outstanding:            0 (  0.000%)
+   Injected:            0
+===============================================================================
+Breakdown by protocol (includes rebuilt packets):
+        Eth:           22 (100.000%)
+       VLAN:            0 (  0.000%)
+        IP4:           22 (100.000%)
+       Frag:            0 (  0.000%)
+       ICMP:            0 (  0.000%)
+        UDP:            4 ( 18.182%)
+        TCP:           18 ( 81.818%)
+        IP6:            0 (  0.000%)
+    IP6 Ext:            0 (  0.000%)
+   IP6 Opts:            0 (  0.000%)
+      Frag6:            0 (  0.000%)
+      ICMP6:            0 (  0.000%)
+       UDP6:            0 (  0.000%)
+       TCP6:            0 (  0.000%)
+     Teredo:            0 (  0.000%)
+    ICMP-IP:            0 (  0.000%)
+    IP4/IP4:            0 (  0.000%)
+    IP4/IP6:            0 (  0.000%)
+    IP6/IP4:            0 (  0.000%)
+    IP6/IP6:            0 (  0.000%)
+        GRE:            0 (  0.000%)
+    GRE Eth:            0 (  0.000%)
+   GRE VLAN:            0 (  0.000%)
+    GRE IP4:            0 (  0.000%)
+    GRE IP6:            0 (  0.000%)
+GRE IP6 Ext:            0 (  0.000%)
+   GRE PPTP:            0 (  0.000%)
+    GRE ARP:            0 (  0.000%)
+    GRE IPX:            0 (  0.000%)
+   GRE Loop:            0 (  0.000%)
+       MPLS:            0 (  0.000%)
+        ARP:            0 (  0.000%)
+        IPX:            0 (  0.000%)
+   Eth Loop:            0 (  0.000%)
+   Eth Disc:            0 (  0.000%)
+   IP4 Disc:            0 (  0.000%)
+   IP6 Disc:            0 (  0.000%)
+   TCP Disc:            0 (  0.000%)
+   UDP Disc:            0 (  0.000%)
+  ICMP Disc:            0 (  0.000%)
+All Discard:            0 (  0.000%)
+      Other:            0 (  0.000%)
+Bad Chk Sum:            1 (  4.545%)
+    Bad TTL:            0 (  0.000%)
+     S5 G 1:            0 (  0.000%)
+     S5 G 2:            0 (  0.000%)
+      Total:           22
+===============================================================================
+Snort exiting
+
+```
 
 **Question 17: Quelle est le comportement de Snort avec un fichier de capture ? Y-a-t'il une difference par rapport à l'analyse en temps réel ?**
 
@@ -618,6 +850,8 @@ Utiliser l'option correcte de Snort pour analyser le fichier de capture Wireshar
 
 ---
 
+Selon la documentation officielle du snort ,ce dernier analyse le ficher selon sa propre liste des règles configurés donc l'analyse n'est pas en temps réel .
+
 **Question 18: Est-ce que des alertes sont aussi enregistrées dans le fichier d'alertes?**
 
 ---
@@ -625,6 +859,7 @@ Utiliser l'option correcte de Snort pour analyser le fichier de capture Wireshar
 **Reponse :**  
 
 ---
+Oui parce que snort analyse les paquets dans le fichier comme c'était en écoute 
 
 --
 
@@ -639,6 +874,7 @@ Faire des recherches à propos des outils `fragroute` et `fragtest`.
 **Reponse :**  
 
 ---
+il servent à intercepter, modifier et réécrire  le trafic de sortie destiné à un hôte spécifié.
 
 
 **Question 21: Quel est le principe de fonctionnement ?**
@@ -648,7 +884,7 @@ Faire des recherches à propos des outils `fragroute` et `fragtest`.
 **Reponse :**  
 
 ---
-
+ces outils modifie les paquets afin d'eviter la détection par les règles mises en place
 
 **Question 22: Qu'est-ce que le `Frag3 Preprocessor` ? A quoi ça sert et comment ça fonctionne ?**
 
@@ -657,7 +893,8 @@ Faire des recherches à propos des outils `fragroute` et `fragtest`.
 **Reponse :**  
 
 ---
-
+Le préprocesseur frag3 est un module de défragmentation IP basé sur cible pour Snort. Frag3 est conçu avec les objectifs suivants: Une exécution plus rapide avec une gestion des données moins complexe.Techniques anti-évasion basées sur la cible de modélisation d'hôte.
+source :https://www.snort.org/faq/readme-frag3 
 
 Reprendre l'exercice de la partie [Trouver votre nom](#trouver-votre-nom-). Essayer d'offusquer la détection avec `fragroute`.
 
@@ -690,7 +927,7 @@ Modifier le fichier `myrules.rules` pour que snort utiliser le `Frag3 Preprocess
 **Reponse :**  
 
 ---
-
+Chaque paquet contenant du trafic SSL a une partie non chiffrée qui fournit des informations sur le trafic lui-même et l'état de la connexion.le SSL/TLS Preprocessor sert à analyser ces parties non chiffrées .
 
 **Question 26: A quoi sert le `Sensitive Data Preprocessor` ?**
 
@@ -699,6 +936,9 @@ Modifier le fichier `myrules.rules` pour que snort utiliser le `Frag3 Preprocess
 **Reponse :**  
 
 ---
+le `Sensitive Data Preprocessor `est un module Snort qui effectue la détection et le filtrage des informations personnelles identifiables.
+source :https://www.snort.org/faq/readme-sensitive_data
+
 
 ### Conclusions
 
@@ -710,6 +950,7 @@ Modifier le fichier `myrules.rules` pour que snort utiliser le `Frag3 Preprocess
 **Reponse :**  
 
 ---
+Snort c'est un excellent outils de détection qui contient une varité  des options nous permet de manipuler et sécuriser notre réseau .
 
 
 <sub>This guide draws heavily on http://cs.mvnu.edu/twiki/bin/view/Main/CisLab82014</sub>
