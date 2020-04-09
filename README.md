@@ -593,8 +593,9 @@ tous les alertes générées seront enregistrées dans le fichier alertes avec u
 **Reponse :**  
 
 ---
+pas de test effectué eu niveau des connection ssh parce que c'est difficile sans une autre machine malgré que j'ai essayé de me connecter sur des serveurs avec des session ssh .
 
---
+--- 
 
 ### Analyse de logs
 
@@ -906,7 +907,7 @@ Reprendre l'exercice de la partie [Trouver votre nom](#trouver-votre-nom-). Essa
 **Reponse :**  
 
 ---
-
+tous les testes marchent trés bien mais une erreur est enlevée au niveau des régles parce que le frag3 preprocesseur n'est pas connu.
 
 Modifier le fichier `myrules.rules` pour que snort utiliser le `Frag3 Preprocessor` et refaire la tentative.
 
@@ -918,6 +919,7 @@ Modifier le fichier `myrules.rules` pour que snort utiliser le `Frag3 Preprocess
 **Reponse :**  
 
 ---
+Grace à frag3 snort ne détecte pas les alerte. le module contourne les règles avec des modifications au niveau des paquets .
 
 
 **Question 25: A quoi sert le `SSL/TLS Preprocessor` ?**
